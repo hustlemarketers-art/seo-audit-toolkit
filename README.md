@@ -1,9 +1,11 @@
-# SEO Audit Toolkit: Technical SEO Crawler and Keyword Cannibalization Finder
+# SEO Audit Toolkit: Technical SEO Crawler and Search Console Query Overlap Finder
+
+[![Tests](https://github.com/hustlemarketers-art/seo-audit-toolkit/actions/workflows/tests.yml/badge.svg)](https://github.com/hustlemarketers-art/seo-audit-toolkit/actions/workflows/tests.yml) [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
 Two free Python scripts for technical SEO work:
 
 1. **`seo_audit.py`** crawls an XML sitemap (or a URL list) and checks status codes, redirects, titles, meta descriptions, H1s, canonicals, robots/noindex directives, JSON-LD structured data, image alt text and internal links.
-2. **`gsc_query_overlap.py`** reads a Google Search Console query + page export and finds queries where several of your pages compete, the usual starting point for a keyword cannibalization review.
+2. **`gsc_query_overlap.py`** reads a Google Search Console query + page export and lists queries that bring impressions to two or more of your pages. Overlap alone does not prove keyword cannibalization; it shows where to look first.
 
 Python 3.10+, standard library only: no `pip install`, login or API key.
 
@@ -51,9 +53,9 @@ The crawler obeys `robots.txt` (including a crawl delay), stays on the starting 
 
 It inspects the HTML the server returns, not a JavaScript-rendered page. That is also roughly what most AI crawlers see, so content that only appears after JavaScript runs is worth checking separately. It cannot confirm Google-selected canonicals, index status, Core Web Vitals or rich-result eligibility. Missing canonicals, multiple H1s and missing descriptions are review items, not automatic indexing failures.
 
-## 2. Search Console query overlap (keyword cannibalization check)
+## 2. Search Console query overlap finder
 
-`gsc_query_overlap.py` lists queries with meaningful impressions on two or more pages. It does not label them as cannibalization automatically: check search intent, page roles and performance before merging or redirecting content.
+`gsc_query_overlap.py` lists queries with meaningful impressions on two or more pages. Shared queries are common and often healthy (a category page and a product page can both deserve impressions), so the script never labels them as cannibalization. Treat the list as a starting point for a keyword cannibalization review: check search intent, page roles and click share before merging or redirecting content.
 
 The input needs **Query, Page, Clicks and Impressions in the same table**, for example a Search Analytics API export with the `query` and `page` dimensions together. The standard Search Console export puts queries and pages on separate tabs, which cannot show which query belongs to which page.
 
