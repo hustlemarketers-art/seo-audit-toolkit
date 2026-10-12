@@ -1,0 +1,5 @@
+﻿query,page,clicks,impressions,pages_sharing_query,impression_share_among_eligible_pages,review
+google ads specialist,https://example.com/google-ads-specialist/,25.0,360.0,2,0.75,SHARED_QUERY_REVIEW_INTENT; not proof of cannibalization
+google ads specialist,https://example.com/google-ads-services/,8.0,120.0,2,0.25,SHARED_QUERY_REVIEW_INTENT; not proof of cannibalization
+shopping feed audit,https://example.com/feed-audit/,15.0,200.0,2,0.8333333333333334,SHARED_QUERY_REVIEW_INTENT; not proof of cannibalization
+shopping feed audit,https://example.com/shopping-services/,2.0,40.0,2,0.16666666666666666,SHARED_QUERY_REVIEW_INTENT; not proof of cannibalization
